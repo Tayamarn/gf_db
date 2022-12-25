@@ -4,6 +4,7 @@ from django.views.generic import CreateView
 from .forms import CreationForm
 from django.urls import reverse_lazy
 
+
 @login_required
 def index(request):
     template = 'users/index.html'
