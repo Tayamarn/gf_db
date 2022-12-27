@@ -1,7 +1,22 @@
 {% extends 'base.html' %}
 
-{% block title %}Добро пожаловать{{ title }}{% endblock %}
+{% block title %}Главная{ title }}{% endblock %}
 
 {% block content %}
-  <h1>Привет {{ user }} </h1>
+  <table>
+    <tr>
+        <td>
+            <img src="{{ gravatar_url }}">
+        </td>
+        <td style="vertical-align: top;">
+            <h1>{{ user }} </h1>
+        </td>
+    </tr>
+    <tr>
+        <td style="text-align: center;">
+            <a href="{% url 'users:help' %}#avatar">как добавить свою фотку</a>
+        </td>
+        <td></td>
+    </tr>
+  </table>
 {% endblock %}

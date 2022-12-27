@@ -13,9 +13,6 @@
         <li class="nav-item" style="margin: 3px">
           <a class="btn btn-outline-success" href="{% url 'users:logout' %}">Выйти</a>
         </li>
-        <li>
-          Пользователь: {{ user.username }}
-        </li>
       </ul>
       {% else %}
       <ul class="nav nav-pills">
