@@ -30,6 +30,11 @@ urlpatterns = [
          name='password_change_done',
      ),
     path(
+        'user/<int:user_id>',
+        views.user,
+        name='user',
+     ),
+    path(
         'help',
         views.help,
         name='help',
