@@ -2,18 +2,18 @@ from django.contrib.auth.views import (LogoutView, LoginView,
                                        PasswordChangeView,
                                        PasswordChangeDoneView)
 from django.urls import path
-from . import views
+from .views import *
 app_name = 'users'
 
 urlpatterns = [
-    path('', views.index, name = 'main'),
-    path('signup/', views.SignUp.as_view(), name='signup'),
+    path('', index, name = 'main'),
+    path('signup/', SignUp.as_view(), name='signup'),
     path(
         'logout/',
         LogoutView.as_view(template_name='users/logged_out.html'),
         name='logout',
     ),
-    path('signup/', views.SignUp.as_view(), name='signup'),
+    path('signup/', SignUp.as_view(), name='signup'),
     path(
         'login/',
         LoginView.as_view(template_name='users/login.html'),
@@ -31,12 +31,14 @@ urlpatterns = [
      ),
     path(
         'user/<int:user_id>',
-        views.user,
+        user,
         name='user',
      ),
     path(
         'help',
-        views.help,
+        help,
         name='help',
      ),
+    path('create_profile_page/', CreateProfilePageView.as_view(), name='create_user_profile'),
+    path('user_profile/<int:pk>/', ShowProfilePageView.as_view(), name='user_profile'),
 ]
